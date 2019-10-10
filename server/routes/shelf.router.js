@@ -2,6 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+
 
 /**
  * Get all of the items on the shelf
@@ -13,12 +15,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             console.log('Error making SELECT for items:', error);
             res.sendStatus(500);
         });// For testing only, can be removed
+    res.sendStatus(200); // For testing only, can be removed
 });
 
 /**
  * Add an item for the logged in user to the shelf
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
 
 });
 
@@ -26,7 +29,7 @@ router.post('/', (req, res) => {
 /**
  * Delete an item if it's something the logged in user added
  */
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 });
 
@@ -34,7 +37,7 @@ router.delete('/:id', (req, res) => {
 /**
  * Update an item if it's something the logged in user added
  */
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
 
 });
 
@@ -43,7 +46,7 @@ router.put('/:id', (req, res) => {
  * Return all users along with the total number of items 
  * they have added to the shelf
  */
-router.get('/count', (req, res) => {
+router.get('/count', rejectUnauthenticated, (req, res) => {
 
 });
 
@@ -51,7 +54,7 @@ router.get('/count', (req, res) => {
 /**
  * Return a specific item by id
  */
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 });
 
