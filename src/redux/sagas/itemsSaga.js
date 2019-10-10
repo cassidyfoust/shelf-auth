@@ -17,8 +17,25 @@ function* fetchItems() {
     }
 }
 
+function* deleteItem(action){
+    try{
+    const config = {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+    };
+    const response = yield axios.delete(`/api/shelf/${action.payload.id}`);
+    yield put({type: 'FETCH_ITEMS'});
+    console.log(response);
+    }catch(error){
+        console.log(error);
+    }
+    
+}
+
+
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
+    yield takeLatest('DELETE_ITEM', deleteItem);
 }
 
 export default itemsSaga;
