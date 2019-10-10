@@ -11,13 +11,17 @@ class InfoPage extends Component {
 
   <div>
       Shelf Page
-      <ul>
+        <div className="shelf-display">
             {this.props.items.map(item => (
-              <li>
-                Description: {item.description}
-              </li>
+              <div className="shelf-item">
+                <div>
+                  <img src={item.image_url} width="150px"></img></div>
+                  <div>
+                {item.description}
+                </div>
+              </div>
             ))}
-          </ul>
+        </div>
   </div>
 );
 }
