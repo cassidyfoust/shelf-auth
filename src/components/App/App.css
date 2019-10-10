@@ -47,3 +47,15 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
+
+.shelf-item {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.shelf-display {
+    display: flex;
+}
