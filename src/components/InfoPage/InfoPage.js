@@ -10,17 +10,14 @@ class InfoPage extends Component {
     return (
 
   <div>
-    <p>
       Shelf Page
       <ul>
             {this.props.items.map(item => (
               <li>
-                Name: {item.name}
                 Description: {item.description}
               </li>
             ))}
           </ul>
-    </p>
   </div>
 );
 }

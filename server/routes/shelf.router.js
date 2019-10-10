@@ -2,7 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const router = express.Router();
-const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 /**
@@ -15,7 +14,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             console.log('Error making SELECT for items:', error);
             res.sendStatus(500);
         });// For testing only, can be removed
-    res.sendStatus(200); // For testing only, can be removed
 });
 
 /**
