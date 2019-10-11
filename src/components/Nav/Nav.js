@@ -20,7 +20,10 @@ const Nav = (props) => (
       {props.user.id && (
         <>
           <Link className="nav-link" to="/info">
-            Info Page
+            Item Shelf
+          </Link>
+          <Link className="nav-link" to="/new">
+            Add Item
           </Link>
           <LogOutButton className="nav-link"/>
         </>
