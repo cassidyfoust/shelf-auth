@@ -39,6 +39,14 @@ class NewItemForm extends Component {
       });
       // clear the form
       event.target.reset();
+      // reset the state
+      this.setState({
+        newItem: {
+          description: null,
+          image_url: null,
+        }
+      }); // end setState
+
     } else {
       alert('You must include an item description!');
     } // end if
