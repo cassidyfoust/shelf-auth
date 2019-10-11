@@ -17,8 +17,19 @@ function* fetchItems() {
     }
 }
 
+function* addItem(action) {
+    try {
+        console.log('addItem: action:', JSON.stringify(action));
+        yield axios.post('/api/shelf', action.payload);
+        yield fetchItems();
+    } catch (error) {
+        console.log('Error adding item!:', error);
+    }
+}
+
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
+    yield takeLatest('ADD_ITEM', addItem);
 }
 
 export default itemsSaga;
