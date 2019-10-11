@@ -7,7 +7,8 @@ class NewItemForm extends Component {
     // store form data before submitting
     newItem: {
       description: null,
-      image_url: null
+      image_url: null,
+      user_id: this.props.reduxState.user.id
     }
   }
 
@@ -48,20 +49,20 @@ class NewItemForm extends Component {
     return (
       <form className="NewItemForm" onSubmit={this.handleSubmit}>
         <h3>IT PUTS THE ITEM ON THE SHELF</h3>
-        <label htmlFor="itemDescriptionIn">Item description:</label>
+        <label htmlFor="itemDescriptionIn">Item description:</label><br />
         <input type='text' name="itemDescriptionIn"
           placeholder="e.g., “a bucket of blood”"
           onChange={(event) => this.handleChangeFor(event, 'description')}
-        />
-        <label htmlFor="itemImageUrlIn">URL for Item Image:</label>
+        /><br />
+        <label htmlFor="itemImageUrlIn">URL for Item Image:</label><br />
         <input type='text' name="itemImageUrlIn"
           placeholder="e.g., https://placekitten.com/320/240"
           onChange={(event) => this.handleChangeFor(event, 'image_url')}
-        />
+        /><br />
         <button type="submit">Add Item</button>
         <pre>{JSON.stringify(this.state, null, 2)}</pre>
         <pre>{JSON.stringify(this.props, null, 2)}</pre>
-        </form>
+      </form>
     );
   }
 }
