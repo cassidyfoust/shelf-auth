@@ -36,7 +36,14 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    let item = req.params.id;
+    let queryText =`REMOVE FROM "items" WHERE id=$1;`;
 
+    pool.query(queryText, item).then((response) =>{
+        console.log(response);
+    }).catch((error) =>{
+        console.log(error);
+    })
 });
 
 

@@ -9,7 +9,7 @@ function* fetchItems() {
             withCredentials: true,
         };
 
-        const response = yield axios.get('api/shelf', config);
+        const response = yield axios.get('/api/shelf', config);
 
         yield put({ type: 'SET_ITEMS', payload: response.data });
     } catch (error) {
@@ -27,9 +27,26 @@ function* addItem(action) {
     }
 }
 
+function* deleteItem(action){
+    try{
+    const config = {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+    };
+    const response = yield axios.delete(`/api/shelf/${action.payload.id}`);
+    yield put({type: 'FETCH_ITEMS'});
+    console.log(response);
+    }catch(error){
+        console.log(error);
+    }
+    
+}
+
+
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchItems);
     yield takeLatest('ADD_ITEM', addItem);
+    yield takeLatest('DELETE_ITEM', deleteItem);
 }
 
 export default itemsSaga;
