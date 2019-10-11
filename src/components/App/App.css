@@ -56,6 +56,17 @@ input {
     margin: 20px;
 }
 
-.shelf-display {
-    display: flex;
+.shelf-item img {
+    width: 100%;
+    height: auto;
 }
+
+.shelf-display {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(150pxrem, auto);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
