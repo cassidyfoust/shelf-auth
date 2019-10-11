@@ -60,8 +60,8 @@ class NewItemForm extends Component {
           onChange={(event) => this.handleChangeFor(event, 'image_url')}
         /><br />
         <button type="submit">Add Item</button>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        <pre>{JSON.stringify(this.props, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.state, null, 2)}</pre>
+        <pre>{JSON.stringify(this.props, null, 2)}</pre> */}
       </form>
     );
   }
